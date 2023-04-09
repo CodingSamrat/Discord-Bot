@@ -21,8 +21,8 @@ class Help(commands.Cog):
     #: write commands here
     #:
     @commands.command(name="help", help="Shows this message")
-    async def he(self, ctx: Context):
-        await ctx.send("Hii, From Demo Command")
+    async def help(self, ctx: Context):
+        await ctx.send("Hii, From Help Command")
 
 
 async def setup(client):
