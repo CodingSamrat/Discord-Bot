@@ -18,7 +18,8 @@ COGS:
 #: engine: must be 'filexdb' or 'mongodb'
 
 #: If you are using MongoDb, add 'MONGO_STRING' env variable in .env file
-#: Also change the 'engine' into 'mongodb'. That's it...
+#: Also change the 'engine' into 'mongodb'.
+#: And you are good to go
 DATABASE:
   engine: filexdb
   db: discord_bot

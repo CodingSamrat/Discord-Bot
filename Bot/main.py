@@ -110,19 +110,19 @@ async def on_guild_remove(guild: Guild):
 async def start_bot(token):
 
     async with bot:
-        LOG.debug(TEXT="Loading Extensions")
+        LOG.info(TEXT="Loading Extensions")
 
         #: Load all cogs
         for cog in COGS:
             try:
                 await bot.load_extension(f"Bot.cogs.{cog}")
-                LOG.debug(TEXT=f"Loading - Bot.cogs.{cog}")
+                LOG.info(TEXT=f"Loading - Bot.cogs.{cog}")
 
             except Exception as e:
                 LOG.error(TEXT=f"{e}")
 
         print("")
-        LOG.debug(TEXT="Initiating Bot...")
+        LOG.info(TEXT="Initiating Bot...")
         await bot.start(token)
 
 
