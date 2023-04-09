@@ -16,7 +16,7 @@ __all__ = ("boot", "__version__")
 __version__ = "1.0.0"
 
 
-def get_server_prefix(message) -> str:
+def get_server_prefix(bot, message) -> str:
     guild_id = str(message.guild.id)
     guild_name = message.guild.name
 

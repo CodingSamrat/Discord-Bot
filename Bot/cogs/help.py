@@ -6,8 +6,10 @@ from Bot.utils import LOG
 
 def help_message(prefix, guild_name):
     msg = f"""
+    ```
     Guild: {guild_name}
     Command Prefix: {prefix}
+    
     These are some common Bot commands used in various situations:
     
         Command                 Descriptions
@@ -18,7 +20,8 @@ def help_message(prefix, guild_name):
         Standalone Commands:
         help, h                 Shows this message     
         
-        Group Commands have some sub-commands. Run them to know more.        
+        Group Commands have some sub-commands. Run them to know more.
+    ```    
     """
 
     return msg
@@ -38,14 +41,13 @@ class Help(commands.Cog):
     #:
     @commands.command()
     async def help(self, ctx: Context):
-        print(0)
         try:
-            guild_id = str(ctx.guild.id)
-            guild_nane = str(ctx.guild.name)
-            print(1)
-            msg = help_message("=", guild_nane)
+            guild_nane = ctx.guild.name
+            prefix = ctx.prefix
 
-            await ctx.send(f"`{msg}`")
+            msg = help_message(prefix, guild_nane)
+
+            await ctx.send(f"{msg}")
         except Exception as e:
             print(e)
 
