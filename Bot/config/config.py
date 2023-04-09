@@ -1,7 +1,5 @@
 import yaml
-# DEFAULT_CONFIG = None
-# COGS = None
-# DATABASE = None
+
 
 with open("Bot/bot_config.yml", "r") as f:
     config = yaml.safe_load(f)

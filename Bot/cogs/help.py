@@ -1,11 +1,27 @@
-#: Discord---
 from discord.ext import commands
 from discord.ext.commands.context import Context
 
-from discord import Guild
-
-#: Bot---
 from Bot.utils import LOG
+
+
+def help_message(prefix, guild_name):
+    msg = f"""
+    Guild: {guild_name}
+    Command Prefix: {prefix}
+    These are some common Bot commands used in various situations:
+    
+        Command                 Descriptions
+        -----------             ----------------
+        Group Commands:
+        config, cfg             Add or modify server/bot configuration
+        
+        Standalone Commands:
+        help, h                 Shows this message     
+        
+        Group Commands have some sub-commands. Run them to know more.        
+    """
+
+    return msg
 
 
 class Help(commands.Cog):
@@ -20,9 +36,18 @@ class Help(commands.Cog):
 
     #: write commands here
     #:
-    @commands.command(name="help", help="Shows this message")
+    @commands.command()
     async def help(self, ctx: Context):
-        await ctx.send("Hii, From Help Command")
+        print(0)
+        try:
+            guild_id = str(ctx.guild.id)
+            guild_nane = str(ctx.guild.name)
+            print(1)
+            msg = help_message("=", guild_nane)
+
+            await ctx.send(f"`{msg}`")
+        except Exception as e:
+            print(e)
 
 
 async def setup(client):

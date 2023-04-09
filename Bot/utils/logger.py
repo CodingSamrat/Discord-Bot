@@ -108,8 +108,8 @@ class LOG:
     class Cog:
         @staticmethod
         def success(_class):
-            LOG.success(TEXT=f"{_class.__class__.__name__} - Successfully loaded!")
+            LOG.success(TEXT=f"{_class.__class__.__name__} - Running...")
 
         @staticmethod
         def error(_class):
-            LOG.error(TEXT=f"{_class.__class__.__name__} loading failed")
+            LOG.error(TEXT=f"{_class.__class__.__name__} Stopped!")

@@ -1,3 +1,4 @@
 from .main import boot
+from .main import __version__
 
-__version__ = "1.0.0"
+__version__ = __version__

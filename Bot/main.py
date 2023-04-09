@@ -6,12 +6,14 @@ from discord.ext import commands
 from discord import Intents
 from discord import Guild
 
+# from Bot import __version__
 from Bot.utils import LOG
 from Bot.config import DEFAULT_CONFIG, COGS
 from Bot.database import Database
 from Bot.database import Collections
 
-__all__ = ("boot",)
+__all__ = ("boot", "__version__")
+__version__ = "1.0.0"
 
 
 def get_server_prefix(message) -> str:
@@ -56,7 +58,10 @@ bot.remove_command('help')
 @bot.event
 async def on_ready():
     LOG.success(TEXT="Bot is Up & Running...")
-    LOG.success(TEXT=f"Logged on as {bot.user.name}\n")
+    print(f"Bot: {bot.user.name}")
+    print(f"version: {__version__}")
+    print(f"No. of Guilds: {len(bot.guilds)}")
+    print("* * *\n")
 
 
 @bot.event
@@ -109,8 +114,15 @@ async def start_bot(token):
 
         #: Load all cogs
         for cog in COGS:
-            await bot.load_extension(f"Bot.cogs.{cog}")
+            try:
+                await bot.load_extension(f"Bot.cogs.{cog}")
+                LOG.debug(TEXT=f"Loading - Bot.cogs.{cog}")
 
+            except Exception as e:
+                LOG.error(TEXT=f"{e}")
+
+        print("")
+        LOG.debug(TEXT="Initiating Bot...")
         await bot.start(token)
 
 

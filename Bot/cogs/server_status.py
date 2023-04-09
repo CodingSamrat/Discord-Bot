@@ -1,10 +1,8 @@
-#: Discord---
 from discord.ext import commands
 from discord.ext.commands.context import Context
 
 from discord import Guild
 
-#: Bot---
 from Bot.utils import LOG
 
 
@@ -20,7 +18,7 @@ class ServerStatus(commands.Cog):  # <- Change ->
 
     #: write commands here
     #:
-    @commands.command(name="ping", help="Shows the latency of Bot")
+    @commands.command()
     async def ping(self, ctx: Context):
         latency = self.bot.latency * 1000
         await ctx.send(f"Bot latency: `{latency}`")

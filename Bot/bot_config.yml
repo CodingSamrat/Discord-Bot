@@ -20,7 +20,7 @@ COGS:
 #: If you are using MongoDb, add 'MONGO_STRING' env variable in .env file
 #: Also change the 'engine' into 'mongodb'. That's it...
 DATABASE:
-  engine: mongodb
+  engine: filexdb
   db: discord_bot
   db_dir: data
 
